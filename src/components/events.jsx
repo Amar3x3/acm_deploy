@@ -1,80 +1,46 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/main.css';
+import EventCarousel from './EventCarousel';
+import { Link } from 'react-router-dom';
+import eventData from '../jsonFIles/events.json';
+import MoreInfo from './eventmoreinfo';
 
-export default function event() {
+const Event = () => {
+  
+  return (
+    <>
+      <div className='uni-up-margin reveal'></div>
+      <h1 className='title'> Our Events</h1>
 
-    return (
-        <>
+      <div className='cards-list'>
+        {eventData.events.map((event) => (
 
+          <div key={event.id} className={`card reveal-from-${event.id % 2 === 0 ? 'left' : 'right'}`}>
+            <div className='card-img'>
+              <EventCarousel images={event.imgLinks} />
 
-            <div className='uni-up-margin'></div>
-            <h1 className='title'> Our Events</h1>
-            <div className='cards-list'>
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
-
-                <div className='card'>
-                    <div className='card-img'></div>
-                    <div className='card-desc'>
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                        lorem ipsum lorem ipsum lorem ipsum
-                    </div>
-                </div>
             </div>
+            <div className='card-desc'>
 
-        </>
-    )
+              {event.description}
 
+            </div>
+            <div className="mp-up-btn">
+              <Link
+                className="light-btn"
+                to={{
+                  pathname: `/moreInfo/${encodeURIComponent(event.id)}`,
+                }}
+              >
+                Read More
+              </Link>
+
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 }
+
+export default Event;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { Link as ScrollLink} from 'react-scroll';
+import { Link as RouterLink, Link as ScrollLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import '../styles/nav.css';
 
@@ -15,6 +14,8 @@ const Navbar = () => {
   };
 
   const location = useLocation();
+
+  const isMoreInfoPage = location.pathname.includes('/moreInfo');
 
   return (
     <>
@@ -33,50 +34,76 @@ const Navbar = () => {
         <div className="links">
           <ul>
             <li className="nav_item">
-              <RouterLink
-                to="/"
-                className={location.pathname === '/' ? 'active_nav' : ''}
-                onClick={handleLinkClick}
-              >
-                Home
-              </RouterLink>
+              {isMoreInfoPage ? (
+                <RouterLink to="/" className={location.pathname === '/' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                  Home
+                </RouterLink>
+              ) : (
+                <ScrollLink
+                  to="/"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className={location.pathname === '/' ? 'active_nav' : ''}
+                  onClick={handleLinkClick}
+                >
+                  Home
+                </ScrollLink>
+              )}
             </li>
             <li className="nav_item">
-              <ScrollLink
-                to="#event"
-                spy={true}
-                smooth={true}
-                duration={500}
-                className={location.pathname === '#event' ? 'active_nav' : ''}
-                onClick={handleLinkClick}
-              >
-                Event
-              </ScrollLink>
+              {isMoreInfoPage ? (
+                <RouterLink to="/#event" className={location.pathname === '/event' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                  Event
+                </RouterLink>
+              ) : (
+                <ScrollLink
+                  to="event"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className={location.pathname === '/event' ? 'active_nav' : ''}
+                  onClick={handleLinkClick}
+                >
+                  Event
+                </ScrollLink>
+              )}
             </li>
             <li className="nav_item">
-              <ScrollLink
-                to="#team"
-                spy={true}
-                smooth={true}
-                duration={500}
-                className={location.pathname === '#team' ? 'active_nav' : ''}
-                onClick={handleLinkClick}
-              >
-                Our Team
-              </ScrollLink>
+              {isMoreInfoPage ? (
+                <RouterLink to="/#team" className={location.pathname === '/team' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                  Our Team
+                </RouterLink>
+              ) : (
+                <ScrollLink
+                  to="team"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className={location.pathname === '/team' ? 'active_nav' : ''}
+                  onClick={handleLinkClick}
+                >
+                  Our Team
+                </ScrollLink>
+              )}
             </li>
-
             <li className="nav_item">
-              <ScrollLink
-                to="#about"
-                spy={true}
-                smooth={true}
-                duration={500}
-                className={location.pathname === '#about' ? 'active_nav' : ''}
-                onClick={handleLinkClick}
-              >
-                About Us
-              </ScrollLink>
+              {isMoreInfoPage ? (
+                <RouterLink to="/#about" className={location.pathname === '/about' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                  About Us
+                </RouterLink>
+              ) : (
+                <ScrollLink
+                  to="about"
+                  spy={true}
+                  smooth={true}
+                  duration={500}
+                  className={location.pathname === '/about' ? 'active_nav' : ''}
+                  onClick={handleLinkClick}
+                >
+                  About Us
+                </ScrollLink>
+              )}
             </li>
           </ul>
         </div>
