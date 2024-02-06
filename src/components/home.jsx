@@ -56,6 +56,7 @@ const  Home =()=>{
                 </div>
             </div>
         </div>
+        
 
         <div className="slider-cont-home">
             <div className="slider">

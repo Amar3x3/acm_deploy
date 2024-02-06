@@ -4,7 +4,7 @@ import '../scripts/animate';
 import { Link } from 'react-router-dom';
 const Teams = () =>{
     return<>
-        <div className='uni-up-margin reveal'></div>
+        <div className='uni-up-margin reveal'>
             <h1 className='title'> Our Team</h1>
             <div className='cards-list teams'>
                 <div className='card red-back reveal-from-left'>
@@ -90,6 +90,7 @@ const Teams = () =>{
                     <Link className="blue-btn" to='/news'>Read More</Link>
                 </div>
                 </div>
+            </div>
             </div>
     </>
 }

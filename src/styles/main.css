@@ -1,5 +1,7 @@
 :root{
- --main-color:rgba(242, 116, 86, 1);
+ /* --main-color:rgba(242, 116, 86, 1); */
+ --main-color:#1588fd;
+ /* --main-color:#04045b; */
 
 }
 html{
@@ -110,6 +112,8 @@ z-index: 1;
   width: 100%;
   z-index: 2;
   background-color: rgba(242, 116, 86, 0.3);
+  background-color: #9bd9fe;
+  opacity: 0.5;
   pointer-events: none;
 }
 .sizebox{
@@ -120,7 +124,7 @@ z-index: 1;
 
 
 
-font-family: 'Inter';
+/* font-family: 'Inter'; */
 font-weight:bolder;
 font-size: 48px;
     line-height: 51px;
@@ -233,7 +237,7 @@ color: var(--main-color);
   object-fit: cover;
 }
 footer{
-  background-color: rgba(242, 116, 86, 1);
+  background-color: var(--main-color);
   color: white;
   padding: 1rem 3rem;
 }

@@ -9,7 +9,7 @@ const Event = () => {
   
   return (
     <>
-      <div className='uni-up-margin reveal'></div>
+      <div className='uni-up-margin'>
       <h1 className='title'> Our Events</h1>
 
       <div className='cards-list'>
@@ -38,6 +38,7 @@ const Event = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </>
   );

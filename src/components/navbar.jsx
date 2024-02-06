@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink, Link as ScrollLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import '../styles/nav.css';
 
@@ -35,11 +35,11 @@ const Navbar = () => {
           <ul>
             <li className="nav_item">
               {isMoreInfoPage ? (
-                <RouterLink to="/" className={location.pathname === '/' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                <Link to="/" className={location.pathname === '/' ? 'active_nav' : ''} onClick={handleLinkClick}>
                   Home
-                </RouterLink>
+                </Link>
               ) : (
-                <ScrollLink
+                <Link
                   to="/"
                   spy={true}
                   smooth={true}
@@ -48,61 +48,55 @@ const Navbar = () => {
                   onClick={handleLinkClick}
                 >
                   Home
-                </ScrollLink>
+                </Link>
               )}
+            
             </li>
             <li className="nav_item">
               {isMoreInfoPage ? (
-                <RouterLink to="/#event" className={location.pathname === '/event' ? 'active_nav' : ''} onClick={handleLinkClick}>
+                <Link to="/" className={location.pathname === '/event' ? 'active_nav' : ''} onClick={handleLinkClick}>
                   Event
-                </RouterLink>
+                </Link>
               ) : (
-                <ScrollLink
-                  to="event"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  className={location.pathname === '/event' ? 'active_nav' : ''}
+                <a
+                  href='#event'
+                  className={location.pathname === '/#event' ? 'active_nav' : ''}
                   onClick={handleLinkClick}
                 >
                   Event
-                </ScrollLink>
+                </a>
               )}
+              
             </li>
             <li className="nav_item">
-              {isMoreInfoPage ? (
-                <RouterLink to="/#team" className={location.pathname === '/team' ? 'active_nav' : ''} onClick={handleLinkClick}>
+            {isMoreInfoPage ? (
+                <Link to="/" className={location.pathname === '/team' ? 'active_nav' : ''} onClick={handleLinkClick}>
                   Our Team
-                </RouterLink>
+                </Link>
               ) : (
-                <ScrollLink
-                  to="team"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  className={location.pathname === '/team' ? 'active_nav' : ''}
+                <a
+                  href='#team'
+                  className={location.pathname === '/#team' ? 'active_nav' : ''}
                   onClick={handleLinkClick}
                 >
                   Our Team
-                </ScrollLink>
+                </a>
               )}
+              
             </li>
             <li className="nav_item">
-              {isMoreInfoPage ? (
-                <RouterLink to="/#about" className={location.pathname === '/about' ? 'active_nav' : ''} onClick={handleLinkClick}>
+            {isMoreInfoPage ? (
+                <Link to="/" className={location.pathname === '/aboutus' ? 'active_nav' : ''} onClick={handleLinkClick}>
                   About Us
-                </RouterLink>
+                </Link>
               ) : (
-                <ScrollLink
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  duration={500}
-                  className={location.pathname === '/about' ? 'active_nav' : ''}
+                <a
+                  href='#about'
+                  className={location.pathname === '/#about' ? 'active_nav' : ''}
                   onClick={handleLinkClick}
                 >
                   About Us
-                </ScrollLink>
+                </a>
               )}
             </li>
           </ul>
