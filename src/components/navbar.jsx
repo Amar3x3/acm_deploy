@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 import '../styles/nav.css';
 
 const Navbar = () => {
@@ -53,51 +54,16 @@ const Navbar = () => {
             
             </li>
             <li className="nav_item">
-              {isMoreInfoPage ? (
-                <Link to="/" className={location.pathname === '/event' ? 'active_nav' : ''} onClick={handleLinkClick}>
-                  Event
-                </Link>
-              ) : (
-                <a
-                  href='#event'
-                  className={location.pathname === '/#event' ? 'active_nav' : ''}
-                  onClick={handleLinkClick}
-                >
-                  Event
-                </a>
-              )}
+             
+              <NavHashLink to='/#event'>Events</NavHashLink>
               
             </li>
             <li className="nav_item">
-            {isMoreInfoPage ? (
-                <Link to="/" className={location.pathname === '/team' ? 'active_nav' : ''} onClick={handleLinkClick}>
-                  Our Team
-                </Link>
-              ) : (
-                <a
-                  href='#team'
-                  className={location.pathname === '/#team' ? 'active_nav' : ''}
-                  onClick={handleLinkClick}
-                >
-                  Our Team
-                </a>
-              )}
+            <NavHashLink to='/#team'>Our Team</NavHashLink>
               
             </li>
             <li className="nav_item">
-            {isMoreInfoPage ? (
-                <Link to="/" className={location.pathname === '/aboutus' ? 'active_nav' : ''} onClick={handleLinkClick}>
-                  About Us
-                </Link>
-              ) : (
-                <a
-                  href='#about'
-                  className={location.pathname === '/#about' ? 'active_nav' : ''}
-                  onClick={handleLinkClick}
-                >
-                  About Us
-                </a>
-              )}
+            <NavHashLink to='/#about'>About Us</NavHashLink>
             </li>
           </ul>
         </div>
